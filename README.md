@@ -52,7 +52,7 @@ Why this dataset?
 Example of 2D checkerboard :
 
 <p align="center">
-<img src="results/target.png" width="400">
+<img src="results/target.png" style="background:white; width="400">
 </p>
 
 ---
