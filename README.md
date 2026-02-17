@@ -21,9 +21,9 @@ Traditional flow/diffusion models require solving an ODE at inference time.
 
 Flow maps instead learn the **solution operator**:
 
-<p align="center">
-  <img src="assets/latex/flow_map_param.png" height="55">
-</p>
+<img src="assets/latex/flow_map_param.png"
+     style="background:white; padding:8px; border-radius:6px"
+     height="60">
 
 allowing:
 - One-step generation
