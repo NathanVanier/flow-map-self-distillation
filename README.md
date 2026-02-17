@@ -21,9 +21,9 @@ Traditional flow/diffusion models require solving an ODE at inference time.
 
 Flow maps instead learn the **solution operator**:
 
-\[
+```
 X_{s,t}(x) = x + (t - s) v_{s,t}(x)
-\]
+```
 
 allowing:
 - One-step generation
@@ -53,7 +53,7 @@ Why this dataset?
 - Allows exact visual inspection
 - Allows histogram KL computation
 
-Example (ground truth vs generated):
+Example of 2D checkerboard :
 
 <p align="center">
 <img src="results/target.png" width="400">
@@ -65,32 +65,63 @@ Example (ground truth vs generated):
 
 We optimize:
 
-\[
+```
 L = L_b + L_D
-\]
+```
 
 Where:
 
 ###  Diagonal Flow Matching
 Enforces tangent condition:
 
-\[
+```
 v_{t,t}(I_t) \approx \dot I_t
-\]
+```
 
 ###  Off-Diagonal Self-Distillation
 
 #### LSD (Lagrangian)
-\[
+```
 \| \partial_t \hat X_{s,t}(I_s) - v_{t,t}(\hat X_{s,t}(I_s)) \|^2
-\]
+```
 
 #### PSD (Midpoint Semigroup)
-\[
+```
 \| X_{s,t}(I_s) - X_{u,t}(X_{s,u}(I_s)) \|^2
-\]
+```
 
 ---
+
+#  Results 
+
+
+We compare Lagrangian Self-Distillation (LSD) and Progressive Self-Distillation (PSD, midpoint)
+on the 2D checkerboard dataset using histogram-based KL divergence.
+
+### KL Divergence
+
+| Steps (N) | KL (LSD) | KL (PSD) |
+|------------|----------|----------|
+| 1          | 0.4576   | 1.5893   |
+| 2          | 0.4298   | 0.8930   |
+| 4          | 0.3515   | 0.5197   |
+| 8          | 0.2651   | 0.3219   |
+| 16         | 0.2508   | 0.2671   |
+
+LSD consistently outperforms PSD across all step counts, with a particularly large gap in the single-step regime.
+As the number of steps increases, both methods improve due to flow composition, but LSD remains more stable and converges faster.
+
+### Qualitative Comparison
+
+<p align="center">
+  <img src="results/results.png" width="900">
+</p>
+
+Top row: LSD  
+Bottom row: PSD (midpoint)
+
+LSD preserves sharper multimodal structure at low step counts, whereas PSD exhibits geometric distortions for small N.  
+Multi-step refinement mitigates these effects, but LSD demonstrates superior stability overall.
 
 #  How to Run
 
