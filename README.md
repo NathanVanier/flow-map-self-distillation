@@ -64,6 +64,7 @@ We optimize:
 <img src="assets/latex/total_loss.png"
      style="background:white; padding:8px; border-radius:6px"
      height="60">
+     
 Where:
 
 ###  Diagonal Flow Matching
