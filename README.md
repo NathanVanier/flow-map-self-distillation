@@ -21,9 +21,9 @@ Traditional flow/diffusion models require solving an ODE at inference time.
 
 Flow maps instead learn the **solution operator**:
 
-```
-X_{s,t}(x) = x + (t - s) v_{s,t}(x)
-```
+<p align="center">
+  <img src="assets/latex/flow_map_param.png" height="55">
+</p>
 
 allowing:
 - One-step generation
@@ -36,10 +36,6 @@ This project implements:
 -  Lagrangian Self-Distillation (LSD)  
 -  Progressive Self-Distillation (PSD midpoint version)  
 -  Multi-step sampling  
-
-
----
-
 
 ---
 
@@ -65,30 +61,31 @@ Example of 2D checkerboard :
 
 We optimize:
 
-```
-L = L_b + L_D
-```
+<p align="center">
+  <img src="assets/latex/total_loss.png" height="45">
+</p>
 
 Where:
 
 ###  Diagonal Flow Matching
 Enforces tangent condition:
 
-```
-v_{t,t}(I_t) \approx \dot I_t
-```
+<p align="center">
+  <img src="assets/latex/tangent.png" height="55">
+</p>
+
 
 ###  Off-Diagonal Self-Distillation
 
 #### LSD (Lagrangian)
-```
-\| \partial_t \hat X_{s,t}(I_s) - v_{t,t}(\hat X_{s,t}(I_s)) \|^2
-```
+<p align="center">
+  <img src="assets/latex/lsd.png" height="70">
+</p>
 
 #### PSD (Midpoint Semigroup)
-```
-\| X_{s,t}(I_s) - X_{u,t}(X_{s,u}(I_s)) \|^2
-```
+<p align="center">
+  <img src="assets/latex/psd_mid.png" height="70">
+</p>
 
 ---
 
