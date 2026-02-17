@@ -1,4 +1,3 @@
-# training.py
 import torch
 from losses import interpolant, lsd_loss, psd_midpoint_loss
 from utils import sample_checkerboard, sample_base_gaussian

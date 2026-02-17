@@ -1,4 +1,3 @@
-# main.py
 import torch
 from models import VNet
 from training import train_lsd
