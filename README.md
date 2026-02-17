@@ -120,7 +120,8 @@ Multi-step refinement mitigates these effects, but LSD demonstrates superior sta
 
 #  How to Run
 
+Using the Notebook is easier in order to undestand the structure
 
 ```bash
 pip install -r requirements.txt
-python src/training.py --config configs/default.yaml
+
