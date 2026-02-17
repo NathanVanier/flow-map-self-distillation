@@ -61,32 +61,29 @@ Example of 2D checkerboard :
 
 We optimize:
 
-<p align="center">
-  <img src="assets/latex/total_loss.png" height="45">
-</p>
-
+<img src="assets/latex/total_loss.png"
+     style="background:white; padding:8px; border-radius:6px"
+     height="60">
 Where:
 
 ###  Diagonal Flow Matching
 Enforces tangent condition:
 
-<p align="center">
-  <img src="assets/latex/tangent.png" height="55">
-</p>
-
+<img src="assets/latex/tangent.png"
+     style="background:white; padding:8px; border-radius:6px"
+     height="60">
 
 ###  Off-Diagonal Self-Distillation
 
 #### LSD (Lagrangian)
-<p align="center">
-  <img src="assets/latex/lsd.png" height="70">
-</p>
-
+<img src="assets/latex/lsd.png"
+     style="background:white; padding:8px; border-radius:6px"
+     height="60">
 #### PSD (Midpoint Semigroup)
-<p align="center">
-  <img src="assets/latex/psd_mid.png" height="70">
-</p>
 
+<img src="assets/latex/psd_mid.png"
+     style="background:white; padding:8px; border-radius:6px"
+     height="60">
 ---
 
 #  Results 
